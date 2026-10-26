@@ -1,7 +1,7 @@
 # Setad Intelligent Tender Monitor & Automated OCR Pipeline
 ### Distributed Two-Phase Web Scraper, Neural Network Captcha Solver & Executive Dashboard
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-orange?style=for-the-badge&logo=github)](https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-orange?style=for-the-badge&logo=github)](https://mostafa-ja.github.io/setad-monitor-demo/)
 [![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
 [![OCR Accuracy](https://img.shields.io/badge/OCR%20Accuracy-99.2%25-brightgreen?style=for-the-badge)](#machine-learning-captcha-solving)
@@ -20,7 +20,7 @@ The system solves critical business and technical challenges:
 3. **Multi-Stage Alert Dispatcher:** Real-time push notifications sent to Telegram channels within **sub-second latency** upon publication, followed by deep financial enrichment.
 4. **Synchronized Reporting:** Live bidirectional synchronization with executive Microsoft Excel (`.xlsx`) workbooks and a reactive single-page dashboard.
 
-👉 **[Experience the Interactive Live Demo Here](https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/)**
+👉 **[Experience the Interactive Live Demo Here](https://mostafa-ja.github.io/setad-monitor-demo/)**
 
 ---
 
@@ -140,5 +140,5 @@ flowchart TD
 ## 📬 Contact & Portfolio
 
 - **Author:** Software & Data Systems Engineer
-- **Live Demo:** [https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/](https://YOUR_GITHUB_USERNAME.github.io/YOUR_REPO_NAME/)
+- **Live Demo:** [https://mostafa-ja.github.io/setad-monitor-demo/](https://mostafa-ja.github.io/setad-monitor-demo/)
 - **LinkedIn / Resume:** Available upon request.
