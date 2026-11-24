@@ -1,7 +1,7 @@
 /**
  * Setad Intelligent Tender Monitor — Interactive Showcase & Live Demo Engine
  * Author: Portfolio Showcase
- * Description: Client-side reactive dashboard simulating full enterprise backend
+ * Description: Client-side reactive dashboard simulating a sample front-end
  *              with real-time filtering, drawer preview, simulated ML OCR,
  *              batch operations, and live terminal streaming.
  */
@@ -283,7 +283,7 @@ function renderTable() {
         <td class="td w-28 whitespace-nowrap">
           <div class="flex items-center gap-1.5">
             <span class="chip ${isFull ? 'c-full' : 'c-list'}">
-              ${isFull ? '✓ کامل' : '⏳ فاز ۱'}
+              ${isFull ? '✓ کامل' : '⏳ نمونه'}
             </span>
             ${!isFull ? `
               <button onclick="event.stopPropagation(); simulateOCR(${t.id})" class="text-[10px] bg-purple-50 text-purple-700 hover:bg-purple-100 border border-purple-200 px-1.5 py-0.5 rounded font-bold transition flex items-center gap-0.5" title="شبیه‌سازی حل کپچا و استخراج فوری">
@@ -509,7 +509,7 @@ function batchSimulateOCR() {
     return;
   }
 
-  showToast(`در حال استخراج هوشمند و حل کپچا برای ${toProcess.length} مورد با ddddocr...`, '⚡');
+  showToast(`در حال استخراج هوشمند و حل کپچا برای ${toProcess.length} مورد با نمونه...`, '⚡');
 
   setTimeout(() => {
     toProcess.forEach((t, idx) => {
@@ -526,7 +526,7 @@ function batchSimulateOCR() {
     });
     updateSidebarUI();
     renderTable();
-    showToast(`✅ فاز ۲ برای ${toProcess.length} مورد با موفقیت استخراج شد!`, '🎉');
+    showToast(`✅ نمونه برای ${toProcess.length} مورد با موفقیت استخراج شد!`, '🎉');
   }, 1200);
 }
 
@@ -628,7 +628,7 @@ function renderDrawerContent(t) {
       <div class="card p-4 space-y-3 bg-gradient-to-br from-white to-slate-50 border-slate-200">
         <div class="flex flex-wrap items-center gap-1.5">
           <span class="chip ${t.urgency_css || 'u-ok'}">${t.urgency || '—'}</span>
-          <span class="chip ${isFull ? 'c-full' : 'c-list'}">${isFull ? '✓ جزئیات کامل' : '⏳ فاز ۱ (در انتظار OCR)'}</span>
+          <span class="chip ${isFull ? 'c-full' : 'c-list'}">${isFull ? '✓ جزئیات کامل' : '⏳ نمونه (در انتظار OCR)'}</span>
           <span class="chip bg-slate-100 text-slate-700 border-slate-200">${t.typeName || t.type || 'مناقصه'}</span>
           ${t.fav ? '<span class="chip bg-amber-50 text-amber-700 border-amber-200">⭐ نشان‌شده</span>' : ''}
         </div>
@@ -650,8 +650,8 @@ function renderDrawerContent(t) {
           <button onclick="toggleFav(${t.id}); renderDrawerContent(state.tenders.find(x => x.id === ${t.id}));" class="btn-ghost text-xs px-2.5 py-1.5 flex items-center gap-1">
             <span>${t.fav ? '⭐ حذف نشان' : '☆ نشان کردن'}</span>
           </button>
-          <button onclick="simulateTelegramAlert(${t.id})" class="btn-ghost text-xs px-2.5 py-1.5 text-sky-700 flex items-center gap-1">
-            <span>📨 تست هشدار تلگرام</span>
+          <button onclick="simulateSampleAlert(${t.id})" class="btn-ghost text-xs px-2.5 py-1.5 text-sky-700 flex items-center gap-1">
+            <span>📨 تست هشدار نمونه</span>
           </button>
         </div>
       </div>
@@ -661,14 +661,14 @@ function renderDrawerContent(t) {
         <div class="card p-3.5 bg-gradient-to-r from-amber-50 to-orange-50/60 border-amber-200 space-y-2">
           <div class="flex items-center justify-between">
             <span class="font-bold text-xs text-amber-900 flex items-center gap-1.5">
-              <span>⚠️ در انتظار حل خودکار کپچا (فاز ۲)</span>
+              <span>⚠️ در انتظار حل خودکار کپچا (نمونه)</span>
             </span>
             <button onclick="simulateOCR(${t.id})" id="btnDrawerOCR" class="px-3 py-1 bg-purple-600 hover:bg-purple-700 text-white rounded-lg text-xs font-bold shadow-md shadow-purple-900/20 transition flex items-center gap-1 cursor-pointer">
               <span>⚡ حل هوشمند با OCR</span>
             </button>
           </div>
           <p class="text-[11px] leading-5 text-amber-800">
-            اطلاعات هدر در فاز ۱ سریع دریافت شده است. برای مبالغ تضمین و اسناد پیوست روی دکمه بنفش کلیک کنید تا عملکرد مدل CNN حل کپچا شبیه‌سازی شود.
+            اطلاعات هدر در نمونه سریع دریافت شده است. برای مبالغ تضمین و اسناد پیوست روی دکمه بنفش کلیک کنید تا عملکرد مدل نمونه حل کپچا شبیه‌سازی شود.
           </p>
         </div>
       ` : ''}
@@ -762,7 +762,7 @@ function simulateOCR(id) {
     btn.disabled = true;
   }
 
-  showToast(`در حال اتصال به مدل هوش مصنوعی ddddocr جهت حل کپچا...`, '🤖');
+  showToast(`در حال اتصال به مدل هوش مصنوعی نمونه جهت حل کپچا...`, '🤖');
 
   setTimeout(() => {
     tender.status = 'Full';
@@ -781,22 +781,22 @@ function simulateOCR(id) {
     if (state.activeTenderId === id) {
       renderDrawerContent(tender);
     }
-    showToast(`✅ کپچا در ۰.۶۸ ثانیه با دقت ۹۹.۲٪ حل شد و مبالغ استخراج گردید!`, '🎉');
+    showToast(`✅ کپچا با داده های نمونه حل شد و مبالغ استخراج گردید!`, '🎉');
   }, 1100);
 }
 
-// Simulate Telegram Alert
-function simulateTelegramAlert(id) {
+// Simulate Sample Alert
+function simulateSampleAlert(id) {
   const t = state.tenders.find(x => x.id === id);
   if (!t) return;
 
-  showToast(`پیام هشدار با قالب HTML به ربات تلگرام ارسال شد! 📱`, '✈️');
+  showToast(`پیام هشدار به صورت نمونه نمایش داده شد! 📱`, '✈️');
 }
 
-// System Architecture Modal
+// About This Simulation
 function openArchitectureModal() {
   const modal = document.getElementById('archModal');
-  if (modal) modal.classList.remove('hidden');
+  showToast('این صفحه یک شبیه سازی مفهومی با داده های نمونه است');  if (modal) modal.classList.remove('hidden');
 }
 
 function closeArchitectureModal() {
@@ -823,19 +823,19 @@ function startLogStream() {
   state.logStreaming = true;
 
   const sampleLogs = [
-    "[INFO] Scheduler triggered: Running hourly 2-phase sync...",
-    "[INFO] [Phase 1] Querying Setad API with lookback=3 days...",
-    "[INFO] [Phase 1] Fetched 14 new tenders in 420ms (zero captchas required).",
-    "[INFO] [Phase 1] Bulk writing 14 records to SQLite seen.db (WAL mode).",
-    "[ALERT] Keyword match: 'برق' found in Tender #664875. Instant Phase-1 Telegram alert sent!",
-    "[INFO] [Phase 2] Prioritizing candidates: 8 tenders selected for deep OCR inspection.",
-    "[INFO] [Phase 2] Tender #664875: Downloading image captcha...",
-    "[OCR] Feeding captcha image into ddddocr model...",
-    "[OCR] Solved captcha '7A49K' in 0.61s with confidence 0.994.",
-    "[INFO] [Phase 2] Detail HTML extracted: Guarantee = 6,421,623,360 Rials, Proposal Deadline = 1405/07/20.",
-    "[ALERT] [Phase 2] Comprehensive financial Telegram notification dispatched.",
+    "[INFO] Scheduler triggered: Running hourly sample sync...",
+    "[INFO] [Sample] Querying Setad API with lookback=3 days...",
+    "[INFO] [Sample] Fetched 14 new tenders (zero captchas required).",
+    "[INFO] [Sample] Bulk writing 14 records to sample data.",
+    "[ALERT] Keyword match: 'برق' found in Tender #664875. Instant sample alert sent!",
+    "[INFO] [Sample] Prioritizing candidates: 8 tenders selected for deep OCR inspection.",
+    "[INFO] [Sample] Tender #664875: Downloading image captcha...",
+    "[OCR] Feeding captcha image into نمونه model...",
+    "[OCR] Solved captcha '7A49K' with sample data.",
+    "[INFO] [Sample] Detail HTML extracted: Guarantee = 6,421,623,360 Rials, Proposal Deadline = 1405/07/20.",
+    "[ALERT] [Sample] Comprehensive financial sample notification dispatched.",
     "[EXCEL] Syncing TenderSheet.xlsx workbook with new financial fields...",
-    "[INFO] Two-phase cycle complete: 14 ingested, 8 parsed, 0 errors. Sleeping until next cycle."
+    "[INFO] Sample cycle complete: 14 ingested, 8 parsed, 0 errors. Sleeping until next cycle."
   ];
 
   const logBox = document.getElementById('logbox');
