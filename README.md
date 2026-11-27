@@ -1,5 +1,7 @@
 # Setad Tender Monitor — Concept Simulation
 
+**Live demo:** https://mostafa-ja.github.io/setad-monitor-demo/ — the interactive simulation, running in the browser with sample data.
+
 This repository is a **standalone simulation**: a front-end mock-up I built to illustrate the general idea of an intelligent tender-monitoring tool for Iran's Setad platform, using sample data.
 
 **What this is**
